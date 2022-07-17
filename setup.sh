@@ -15,6 +15,9 @@ sudo apt-key fingerprint 0EBFCD88
 sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt update
 sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+# ubun2u22.04(2022.07時)ではiptablesをlegacyモードにしないとdocker daemonがstartしないのでlegacy modeにする
+echo 1 | sudo update-alternatives --config iptables
+
 sudo service docker start
 
 sudo mkdir -p /sys/fs/cgroup/systemd
