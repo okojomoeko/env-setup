@@ -48,6 +48,7 @@ sudo chsh -s $(which zsh) $USER
 # sudo npm install -g -y n npm-check-updates
 
 # # install rust
+# sudo apt-get install -y gcc
 # curl https://sh.rustup.rs -sSf | sudo bash -s -- -y
 
 # # install python

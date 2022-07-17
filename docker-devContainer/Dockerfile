@@ -73,6 +73,7 @@ RUN curl -SL https://deb.nodesource.com/setup_18.x | bash \
 
 # FROM base as rust
 WORKDIR /tmp
+RUN apt-get install -y gcc
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 # RUN echo 'source $HOME/.cargo/env' >> $HOME/.bashrc
 
