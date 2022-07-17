@@ -1,0 +1,1 @@
+docker run -it -d --name okojo-devcontainer --dns=8.8.8.8 --mount type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock --mount type=volume,src=vscode-extensions,dst=${HOME}/.vscode-server/extensions -v ${HOME}/work:${HOME}/work okojo-devcontainer /bin/bash

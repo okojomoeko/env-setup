@@ -41,3 +41,14 @@ ln -s ~/work/dotfiles/zsh/.zshrc ~/.zshrc
 ln -s ~/work/dotfiles/zsh/.zsh_aliases ~/.zsh_aliases
 sudo chsh -s $(which zsh)
 sudo chsh -s $(which zsh) $USER
+
+# # node install
+# curl -SL https://deb.nodesource.com/setup_18.x | sudo bash;
+# sudo apt-get install nodejs;
+# sudo npm install -g -y n npm-check-updates
+
+# # install rust
+# curl https://sh.rustup.rs -sSf | sudo bash -s -- -y
+
+# # install python
+# curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
