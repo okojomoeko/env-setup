@@ -9,6 +9,6 @@ echo $CID
 
 if [ -n "$CID" ]; then
   docker exec -u 0 $CID /bin/bash -c "sudo apt update; sudo apt upgrade -y; sudo -s eval $(ncu -u -g | tail -n 2)"
-  exit;
+
   docker commit $IMAGE $IMAGE:latest;
 fi
