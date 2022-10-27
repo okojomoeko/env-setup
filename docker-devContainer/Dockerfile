@@ -18,9 +18,12 @@ RUN apt-get update \
         ctop \
         curl \
         docker.io \
+        docker-compose-plugin \
+        gnupg \
         git \
         htop \
         language-pack-ja \
+        lsb-release\
         make \
         shellcheck \
         software-properties-common \
