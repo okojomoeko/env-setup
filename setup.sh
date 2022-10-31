@@ -47,9 +47,17 @@ sudo chsh -s $(which zsh) $USER
 # sudo apt-get install nodejs;
 # sudo npm install -g -y n npm-check-updates
 
+sudo apt install -y nodejs npm
+sudo npm update -g npm
+sudo npm install -g -y n
+sudo n stable
+sudo apt purge -y nodejs
+sudo npm install -g -y npm-check-updates
+
 # # install rust
 # sudo apt-get install -y gcc
 # curl https://sh.rustup.rs -sSf | sudo bash -s -- -y
 
 # # install python
-# curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
+sudo apt install -y python3-pip
+curl -sSL https://install.python-poetry.org | python3 -
