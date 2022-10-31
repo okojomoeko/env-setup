@@ -6,7 +6,8 @@ set -euxo pipefail
 sudo add-apt-repository -y ppa:git-core/ppa;
 sudo apt update;
 sudo apt upgrade -y;
-sudo apt install -y zsh;
+sudo apt install -y zsh \
+                    unzip;
 
 # Install Docker
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
@@ -61,3 +62,8 @@ sudo npm install -g -y npm-check-updates
 # # install python
 sudo apt install -y python3-pip
 curl -sSL https://install.python-poetry.org | python3 -
+
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+rm -rf aws awscliv2.zip
