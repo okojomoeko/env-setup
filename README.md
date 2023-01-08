@@ -1,7 +1,5 @@
 # env-setup
 
-WSL2の環境を作るやつ
+Mac と Win の開発環境を作る。
 
-## WSL2のセットアップ
-
-WSL2を立ち上げて`setup.sh`を実行
+それぞれ`lima`と`WSL2`を利用する想定。
