@@ -54,7 +54,7 @@ provision:
       sudo apt install -y docker-compose qemu-system-x86 binfmt-support qemu-user qemu-user-static
       export DEBIAN_FRONTEND=noninteractive
       rm -rf ~/.zshrc
-      curl -sf https://raw.githubusercontent.com/okojomoeko/env-setup/mac/setup.sh | bash -s
+      curl -sf https://raw.githubusercontent.com/okojomoeko/env-setup/main/mac/setup.sh | bash -s
 
 probes:
   - script: |
