@@ -36,7 +36,12 @@ curl https://sh.rustup.rs -sSf | bash -s -- -y
 sudo apt install -y python3-pip
 curl -sSL https://install.python-poetry.org | python3 -
 
+# install aws cli
 curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 sudo ./aws/install
 rm -rf aws awscliv2.zip
+
+# set git config
+git config --global user.email "chikoro.size@gmail.com"
+git config --global user.name "okojomoeko"
