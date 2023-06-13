@@ -19,3 +19,14 @@ VS Code から入れるように`.ssh/config`に追加
 ```shell
 touch ~/.ssh/config && limactl show-ssh -f config default >> ~/.ssh/config
 ```
+
+## TODO
+
+- [ ] 一部brewで管理外のアプリについてbrew管理できるようにする
+    - [ ] brave-browser
+    - [ ] google-drive
+    - [ ] karabiner-elements
+    - [ ] google-japanese-ime
+
+- [ ] windowsのwsl2でもbrew管理ができるようにする
+- [ ] virtual machine環境でもbrewで管理できるようにする
