@@ -17,7 +17,9 @@ elif [ "$(uname)" == 'Linux' ]; then
   echo "Install Homebrew"
   which $BREW_PATH/bin/brew >/dev/null 2>&1 || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-
+  echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bash_profile
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  git config --global core.autoCRLF false
   # WSL 用の調整
   if [[ "$(uname -r)" == *microsoft* ]]; then
   fi
@@ -41,6 +43,9 @@ which $BREW_PATH/bin/brew >/dev/null 2>&1 && brew bundle --file ./Brewfile
 
 echo "brew cleanup"
 which brew >/dev/null 2>&1 && brew cleanup
+
+chsh -s $BREW_PATH/bin/zsh
+chsh -s $BREW_PATH/bin/zsh $USER
 
 #------------------------------------------
 # Develop Environment
