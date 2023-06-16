@@ -1,47 +1,57 @@
 #!/bin/bash
 
-set -euxo pipefail
+if [ "$(uname)" == 'Darwin' ]; then
+  echo "Install XCode"
+  xcode-select --install
 
-# 最新のgitをいれるためのrepository登録
-sudo add-apt-repository -y ppa:git-core/ppa;
-sudo apt update;
-sudo apt upgrade -y;
-sudo apt install -y zsh \
-                    unzip;
+  echo "Install Rosetta2"
+  sudo softwareupdate --install-rosetta --agree-to-licensesudo softwareupdate --install-rosetta --agree-to-license
+  BREW_PATH="/opt/homebrew"
 
-# 自分のdotfilesをcloneしてdefault shellをzshに
-sudo chsh -s $(which zsh)
-sudo chsh -s $(which zsh) $USER
-exec -l $(which zsh)
-rm -rf ~/.zshrc
-rm -rf ~/.zsh_aliases
-git clone https://github.com/okojomoeko/dotfiles.git ~/work/env/dotfiles
-ln -s ~/work/env/dotfiles/zsh/.zshrc ~/.zshrc
-ln -s ~/work/env/dotfiles/zsh/.zsh_aliases ~/.zsh_aliases
-source ~/.zshrc
+  echo "Install Homebrew"
+  which $BREW_PATH/bin/brew >/dev/null 2>&1 || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 
-# # node install
-sudo apt install -y nodejs npm
-sudo npm update -g npm
-sudo npm install -g -y n
-sudo n stable
-sudo apt purge -y nodejs
-sudo npm install -g -y npm-check-updates
+elif [ "$(uname)" == 'Linux' ]; then
+  BREW_PATH="/home/linuxbrew/.linuxbrew"
+  echo "Install Homebrew"
+  which $BREW_PATH/bin/brew >/dev/null 2>&1 || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 
-# install rust
-sudo apt-get install -y gcc
-curl https://sh.rustup.rs -sSf | bash -s -- -y
+  # WSL 用の調整
+  if [[ "$(uname -r)" == *microsoft* ]]; then
+  fi
 
-# # install python
-sudo apt install -y python3-pip
-curl -sSL https://install.python-poetry.org | python3 -
+else
+  echo 'Windows'
+fi
 
-# install aws cli
-curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
-rm -rf aws awscliv2.zip
 
-# set git config
-git config --global user.email "chikoro.size@gmail.com"
-git config --global user.name "okojomoeko"
+#------------------------------------------
+# Homebrew
+#------------------------------------------
+echo "Install Homebrew"
+which $BREW_PATH/bin/brew >/dev/null 2>&1 || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+echo "brew update and upgrade"
+which $BREW_PATH/bin/brew >/dev/null 2>&1 && brew update && brew upgrade
+
+echo "brew install"
+which $BREW_PATH/bin/brew >/dev/null 2>&1 && brew bundle --file ./Brewfile
+
+echo "brew cleanup"
+which brew >/dev/null 2>&1 && brew cleanup
+
+#------------------------------------------
+# Develop Environment
+#------------------------------------------
+./setup_devenv.sh
+
+
+#------------------------------------------
+# dotfiles
+#------------------------------------------
+./setup_dotfiles.sh
+
+
+exec $SHELL -l
