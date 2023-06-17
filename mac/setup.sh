@@ -13,15 +13,17 @@ if [ "$(uname)" == 'Darwin' ]; then
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 
 elif [ "$(uname)" == 'Linux' ]; then
+  sudo apt-get install build-essential procps curl file git
   BREW_PATH="/home/linuxbrew/.linuxbrew"
   echo "Install Homebrew"
   which $BREW_PATH/bin/brew >/dev/null 2>&1 || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+  echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.zprofile
   echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bash_profile
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   git config --global core.autoCRLF false
   # WSL 用の調整
   if [[ "$(uname -r)" == *microsoft* ]]; then
+    echo "WSL"
   fi
 
 else
@@ -44,6 +46,7 @@ which $BREW_PATH/bin/brew >/dev/null 2>&1 && brew bundle --file ./Brewfile
 echo "brew cleanup"
 which brew >/dev/null 2>&1 && brew cleanup
 
+sudo echo "$BREW_PATH/bin/zsh"  >> /etc/shells
 chsh -s $BREW_PATH/bin/zsh
 chsh -s $BREW_PATH/bin/zsh $USER
 
