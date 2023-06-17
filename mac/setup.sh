@@ -82,6 +82,10 @@ elif [ "$(uname)" == 'Linux' ]; then
     # take ownership of Node.js install destination folders
     sudo chown -R $USER /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
     n lts
+    #------------------------------------------
+    # Git credential helper
+    #------------------------------------------
+    git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
   fi
 
 else
