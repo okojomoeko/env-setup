@@ -1,6 +1,9 @@
 tap "homebrew/bundle"
+tap "homebrew/cask-fonts"
 brew "awscli"
 brew "bat"
+brew "exa"
+brew "fd"
 brew "git"
 brew "graphviz"
 brew "grep"
@@ -11,22 +14,24 @@ brew "n"
 brew "neovim"
 brew "poetry"
 brew "pyenv"
+brew "ripgrep"
+brew "starship"
 brew "tree"
 brew "wget"
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
 cask "cheatsheet"
+cask "font-meslo-lg-nerd-font"
+cask "font-sauce-code-pro-nerd-font"
 cask "intellij-idea-ce"
 cask "notion"
 cask "rancher"
 cask "rectangle"
 cask "utm"
 cask "visual-studio-code"
-if OS.mac?
-  mas "Bitwarden", id: 1352778147
-  mas "Microsoft Remote Desktop", id: 1295203466
-  mas "Spark", id: 1176895641
-  mas "The Unarchiver", id: 425424353
-  mas "Xcode", id: 497799835
-end
+mas "Bitwarden", id: 1352778147
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Spark", id: 1176895641
+mas "The Unarchiver", id: 425424353
+mas "Xcode", id: 497799835
