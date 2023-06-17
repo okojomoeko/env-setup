@@ -30,10 +30,8 @@ cask "rancher"
 cask "rectangle"
 cask "utm"
 cask "visual-studio-code"
-if OS.mac?
-  mas "Bitwarden", id: 1352778147
-  mas "Microsoft Remote Desktop", id: 1295203466
-  mas "Spark", id: 1176895641
-  mas "The Unarchiver", id: 425424353
-  mas "Xcode", id: 497799835
-end
+mas "Bitwarden", id: 1352778147
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Spark", id: 1176895641
+mas "The Unarchiver", id: 425424353
+mas "Xcode", id: 497799835
