@@ -13,7 +13,7 @@ if [ "$(uname)" == 'Darwin' ]; then
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 
 elif [ "$(uname)" == 'Linux' ]; then
-  sudo apt-get install build-essential procps curl file git
+  sudo apt-get install build-essential procps curl file git -y
   BREW_PATH="/home/linuxbrew/.linuxbrew"
   echo "Install Homebrew"
   which $BREW_PATH/bin/brew >/dev/null 2>&1 || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -46,9 +46,9 @@ which $BREW_PATH/bin/brew >/dev/null 2>&1 && brew bundle --file ./Brewfile
 echo "brew cleanup"
 which brew >/dev/null 2>&1 && brew cleanup
 
-sudo echo "$BREW_PATH/bin/zsh"  >> /etc/shells
-chsh -s $BREW_PATH/bin/zsh
-chsh -s $BREW_PATH/bin/zsh $USER
+echo "$BREW_PATH/bin/zsh"  | sudo tee -a /etc/shells
+sudo chsh -s $BREW_PATH/bin/zsh
+sudo chsh -s $BREW_PATH/bin/zsh $USER
 
 #------------------------------------------
 # Develop Environment
