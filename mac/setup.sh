@@ -81,6 +81,7 @@ elif [ "$(uname)" == 'Linux' ]; then
     sudo mkdir -p /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
     # take ownership of Node.js install destination folders
     sudo chown -R $USER /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
+    n lts
   fi
 
 else
