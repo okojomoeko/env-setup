@@ -1,3 +1,4 @@
+tap "hashicorp/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 brew "awscli"
@@ -24,6 +25,7 @@ brew "wget"
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
+brew "hashicorp/tap/terraform"
 cask "cheatsheet"
 cask "font-meslo-lg-nerd-font"
 cask "font-sauce-code-pro-nerd-font"
@@ -36,6 +38,7 @@ cask "rectangle"
 cask "utm"
 cask "visual-studio-code"
 mas "Bitwarden", id: 1352778147
+mas "GoodNotes", id: 1444383602
 mas "LINE", id: 539883307
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "Spark", id: 1176895641
