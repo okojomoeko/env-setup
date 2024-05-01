@@ -1,24 +1,31 @@
 # env-setup
 
-Mac と Win の開発環境を作る。
+## Description
 
-それぞれ`lima`と`WSL2`を利用する想定。
+Mac と WSL2 の開発環境を作る。
 
-## Mac
+- MacとWSL2共通でインストールするツール系は`common`
+- それ以外はそれぞれのディレクトリにあるスクリプトを個別でセットアップしていく
 
-[]ima の install 方法](https://github.com/lima-vm/lima#getting-started)に従ってbrewでinstallする
+## Getting Started
 
-この Repository を clone してきて
+`./setup.sh`
 
-`limactl start path/env-setup/mac/lima/default.yaml`で instance 起動
+### Dependencies
 
-`lima`で instance に log in したときにうまく zsh とか`.zshrc`とかなかったら、一度 instance を再起動してから手動で適当に直す。(今後改善したい)
+### Installing
 
-VS Code から入れるように`.ssh/config`に追加
+### Executing program
 
-```shell
-touch ~/.ssh/config && limactl show-ssh -f config default >> ~/.ssh/config
-```
+## Help
+
+## Authors
+
+## Version History
+
+## License
+
+## Acknowledgments
 
 ## TODO
 
@@ -28,5 +35,4 @@ touch ~/.ssh/config && limactl show-ssh -f config default >> ~/.ssh/config
     - [ ] karabiner-elements
     - [ ] google-japanese-ime
 
-- [ ] windowsのwsl2でもbrew管理ができるようにする
-- [ ] virtual machine環境でもbrewで管理できるようにする
+- [ ] windowsのwingetも管理する
