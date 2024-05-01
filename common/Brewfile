@@ -8,8 +8,8 @@ brew "broot"
 brew "cmake"
 brew "duf"
 brew "dust"
-brew "exa"
 brew "exiftool"
+brew "eza"
 brew "fd"
 brew "ffmpeg"
 brew "fswatch"
@@ -53,9 +53,10 @@ cask "rectangle"
 cask "utm"
 cask "visual-studio-code"
 mas "Bitwarden", id: 1352778147
-mas "GoodNotes", id: 1444383602
+mas "Goodnotes", id: 1444383602
 mas "LINE", id: 539883307
 mas "Microsoft Remote Desktop", id: 1295203466
+mas "Pages", id: 409201541
 mas "Spark", id: 1176895641
 mas "The Unarchiver", id: 425424353
 mas "Xcode", id: 497799835
