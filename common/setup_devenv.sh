@@ -17,17 +17,8 @@ elif [ "$(uname)" == 'Linux' ]; then
   # WSL 用の調整
   if [[ "$(uname -r)" == *microsoft* ]]; then
     echo "WSL"
-    #------------------------------------------
-    # Install Node.js
-    #------------------------------------------
-    # make cache folder (if missing) and take ownership
-    sudo mkdir -p /usr/local/n
-    sudo chown -R $USER /usr/local/n
-    # make sure the required folders exist (safe to execute even if they already exist)
-    sudo mkdir -p /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
-    # take ownership of Node.js install destination folders
-    sudo chown -R $USER /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
-    n lts
+    $REPO_DIR/linux/setup_devenv_wsl.sh
+
     #------------------------------------------
     # Git credential helper
     #------------------------------------------
