@@ -24,7 +24,8 @@ echo "Done Install Rosetta2"
 
 echo "Install Homebrew"
 BREW_PATH="/opt/homebrew"
-which $BREW_PATH/bin/brew >/dev/null 2>&1 || (/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < /dev/null && write_string 'eval "$(/opt/homebrew/bin/brew shellenv)"' ~/.zprofile)
+which $BREW_PATH/bin/brew >/dev/null 2>&1 || (/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < /dev/null)
+write_string 'eval "$(/opt/homebrew/bin/brew shellenv)"' ~/.zprofile
 echo "Done Install Homebrew"
 ################################
 
